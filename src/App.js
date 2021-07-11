@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme,  ThemeProvider } from '@material-ui/core'
+import { blue } from '@material-ui/core/colors'
+import React, {Suspense, lazy} from 'react'
+import './App.css'
+import 'fontsource-roboto'
 
-function App() {
+
+const LoggedInComponent = lazy(() => import('./logged_in/components'))
+const LoggedOutComponent = lazy(() => import('./logged_out'))
+const theme = createTheme({
+  palette:{
+      primary: {
+          main: blue[900],
+          contrastText: "white"
+      }
+  }
+})
+
+
+export default function App() {
+  const isLoggedin = false
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <ThemeProvider theme = {theme}>
+        <Suspense fallback={<div>ddd</div>} >
+          {
+            isLoggedin ?
+                      <LoggedInComponent /> :
+                      <LoggedOutComponent />
+          }
+        </Suspense>
+      </ThemeProvider>
     </div>
-  );
+  )
 }
-
-export default App;
