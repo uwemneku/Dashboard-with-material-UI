@@ -5,7 +5,7 @@ import { useViewportSpy } from 'beautiful-react-hooks';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        minHeight:"80vh",
+        minHeight:"100vh",
         backgroundColor: theme.palette.primary.dark,
         display: "flex",
         flexDirection: "column",
@@ -96,9 +96,7 @@ function SimpleCard({title, icon, text}){
     useEffect(() => {
         hasEnteredScreen && setIsVisible(true)
     }, [hasEnteredScreen])
-    useEffect(() => {
-        
-    }, [isVisible])
+ 
     return(
         <div>
             <Grow ref={ref} in={isVisible} style={{boxSizing:"border-box"}}  >
@@ -118,7 +116,7 @@ function SimpleCard({title, icon, text}){
                           </Box>
                       </Typography>
                       <Typography component="div" variant ="body1">
-                          <Box component="p" color="text.primary" >
+                          <Box component="p" color="text.secondary" >
                            {text}
                           </Box>
                       </Typography>

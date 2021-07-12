@@ -5,6 +5,7 @@ a{
   /* box-sizing: border-box !important; */
   margin: 0px;
   padding: 0px;
+  list-style: none;
   
 }
 img{

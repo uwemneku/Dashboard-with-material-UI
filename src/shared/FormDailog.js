@@ -31,7 +31,7 @@ export default function FormDialog ({open=true, setOpen, formComponent, title}){
         <div>
             <Dialog
                 open={open}
-                maxWidth="sm"
+                maxWidth="xs"
                 fullWidth={true}
                 
                 TransitionComponent={Transition}
@@ -44,6 +44,11 @@ export default function FormDialog ({open=true, setOpen, formComponent, title}){
                 <DialogContent 
                  
                 className={classes.dialogContent} >
+                    <Typography variant={  "h5"} color="primary">
+                        <Box paddingY={3} fontWeight={600}  >
+                            {title}
+                        </Box>
+                    </Typography>
                     {formComponent}
 
                  </DialogContent>
