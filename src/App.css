@@ -11,6 +11,15 @@ a{
 img{
   width: 100%
 }
+a{
+  color: inherit;
+}
+.center-contents-veritically{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .loading{
   width: 100px;
   height: 100px;

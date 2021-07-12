@@ -1,12 +1,11 @@
 import { Box, Button, Grid, makeStyles, Typography, useMediaQuery, withStyles } from '@material-ui/core'
-import React, { useState } from 'react'
+import React from 'react'
 import ReactTypingEffect from 'react-typing-effect'
-import heroImage from '../../../media/hero_lg.jpg'
 import { useTheme, } from '@material-ui/core/styles';
-import FormDialog from '../../../shared/FormDailog';
-import Lottie from 'react-lottie';
 import hero from '../../../media/hero.json'
 import LottieWrapper from '../../../shared/LottieWrapper';
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -98,7 +97,9 @@ export default function HeroSection() {
                                               color="primary" 
                                               size="large" 
                                 >
-                                    Get Started
+                                    <Link smooth to="/#pricing">
+                                        Get Started
+                                    </Link>
                                 </StyledButton>
                                 <StyledButton variant="outlined" size="large" >
                                     Know More

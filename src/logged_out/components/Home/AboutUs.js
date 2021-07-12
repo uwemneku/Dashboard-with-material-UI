@@ -51,13 +51,14 @@ export default function AboutUs() {
         padding = "30px 20px"
         ref={ref}
         minHeight="100vh"
+        id="aboutus"
       >
-          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
-              <Grid item md xs={12}>
-                <FAQ slideIn ={isVisible} /> 
-              </Grid>
+          <Grid  container direction="row" justifyContent="center" alignItems="center" spacing={3}>
               <Grid item md xs={12} container direction="row" justifyContent="center" alignItems="center">
                   <Test slideIn ={isVisible} />
+              </Grid>
+              <Grid item md xs={12}>
+                <FAQ slideIn ={isVisible} /> 
               </Grid>
           </Grid>
        

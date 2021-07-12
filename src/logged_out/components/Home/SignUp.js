@@ -1,7 +1,7 @@
 import { Box, Button, Container, Divider, Grid, IconButton, InputAdornment, makeStyles, Paper, TextField, Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { HashLink as Link } from 'react-router-hash-link';
 
 const useStyles = makeStyles((theme) => ({
     root:{

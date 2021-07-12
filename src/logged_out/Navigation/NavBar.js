@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { Avatar, Box } from '@material-ui/core';
 import FormDialog from '../../shared/FormDailog';
 import logo from '../../media/logo.png'
@@ -57,12 +57,12 @@ const menuItems = [
        icon:"" 
    },
    {
-       link: "#aboutus",
+       link: "/#aboutus",
        name: "About Us",
        icon:"" 
    },
    {
-       link: "#contactus",
+       link: "/#contactus",
        name: "Contact Us",
        icon:"" 
    },
@@ -133,6 +133,7 @@ export default function NavBar() {
                         if(element.link){
                             return(
                                 <Link 
+                                    smooth
                                     key={element.name}
                                     to={element.link}
                                 >

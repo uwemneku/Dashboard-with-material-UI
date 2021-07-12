@@ -18,6 +18,7 @@ function Pricing() {
             flexWrap="wrap"
             bgcolor="primary.dark"
             paddingY={15}
+            id="pricing"
          >
              <Box 
                  width="100vw"
