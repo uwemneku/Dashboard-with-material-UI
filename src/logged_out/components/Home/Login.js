@@ -17,11 +17,7 @@ export default function Login() {
     const matches_smDown = useMediaQuery(theme.breakpoints.down("sm"))
     return (
         <Container maxWidth="xs" className={classes.root}  classes={{root: classes.root}}  >
-                    <Typography variant={ matches_smDown ? "h6" : "h5"} color="primary">
-                        <Box paddingY={3} fontWeight={600}  >
-                            Log in
-                        </Box>
-                    </Typography>
+                    
                     <form title="Log in">
                         <Grid direction="column"
                                 container

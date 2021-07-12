@@ -52,11 +52,11 @@ export default function AboutUs() {
         ref={ref}
         minHeight="100vh"
       >
-          <Grid container direction="row" justifyContent="center" alignItems="center">
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
               <Grid item md xs={12}>
                 <FAQ slideIn ={isVisible} /> 
               </Grid>
-              <Grid item md xs={12}>
+              <Grid item md xs={12} container direction="row" justifyContent="center" alignItems="center">
                   <Test slideIn ={isVisible} />
               </Grid>
           </Grid>
@@ -67,15 +67,15 @@ export default function AboutUs() {
 // ccordion square  >
 const Test =({slideIn})=>{
     return(
+        
         <Slide  direction="left" in={slideIn} mountOnEnter  >
-
-        <Box maxWidth={600} paddingY={10}  >
+        <Box maxWidth={600}   >
             <Typography variant="h4" color="primary">
-                <Box fontWeight={600}>
+                <Box fontWeight={600} textAlign="center">
                     About Us
                 </Box>
             </Typography>
-            <Grid container>
+            <Grid container justifyContent="center" alignItems="center" >
                 <Grid>
                     <Box paddingY={2} maxHeight={200} overflow="hidden" >
                         { slideIn && <img src={image} alt={"jhbhb"} />}
@@ -102,9 +102,14 @@ const FAQ = ({slideIn}) => {
                <Box 
                 display="flex"
                 flexDirection="column"
-                justifyContent="center"
+                justifyContent="flex-start"
                 alignItems="center"
                >
+                   <Typography variant="h4" color="primary">
+                        <Box fontWeight={600}>
+                        FAQ's
+                        </Box>
+                    </Typography>
 
                 {
                     FAQdetails.map((item, index) => (

@@ -4,6 +4,8 @@ import ReactTypingEffect from 'react-typing-effect'
 import heroImage from '../../../media/hero_lg.jpg'
 import { useTheme, } from '@material-ui/core/styles';
 import FormDialog from '../../../shared/FormDailog';
+import Lottie from 'react-lottie';
+import hero from '../../../media/hero.json'
 import Login from './Login';
 import SignUp from './SignUp';
 
@@ -50,8 +52,18 @@ export default function HeroSection() {
     const classes = useStyles();
     const theme = useTheme();
     const matches_smDown = useMediaQuery(theme.breakpoints.down("sm"))
+    const matches_mdDown = useMediaQuery(theme.breakpoints.down("md"))
     const [openForm, setOpenForm] = useState(false)
-  const [showLoginForm, setShowLoginForm] = useState(false)
+    const [showLoginForm, setShowLoginForm] = useState(false)
+    // const lottieSize = useMemo(() => function, input)
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: hero,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
 
   const handleForm = (formName) => {
     setOpenForm(!openForm)
@@ -118,7 +130,12 @@ export default function HeroSection() {
                 <Grid item xs={12} md
 
                 >
-                    <img className={classes.images} src={heroImage} alt="klnkll" />
+                    {/* <img className={classes.images} src={heroImage} alt="klnkll" /> */}
+                    <Lottie options={defaultOptions}
+                    height={"100%"}
+                    width={"100%"}
+                    isStopped={false}
+                    isPaused={false}/>
                 </Grid>
                 <FormDialog 
                   open={openForm} 

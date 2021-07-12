@@ -14,7 +14,7 @@ import logo from '../../media/logo.png'
 import Login from '../components/Home/Login';
 import SignUp from '../components/Home/SignUp';
 import NavigationDrawer from '../../shared/NavigationDrawer';
-import { TramRounded } from '@material-ui/icons';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,12 +56,12 @@ const menuItems = [
        icon:"" 
    },
    {
-       link: "/aboutus",
+       link: "#aboutus",
        name: "About Us",
        icon:"" 
    },
    {
-       link: "/contactus",
+       link: "#contactus",
        name: "Contact Us",
        icon:"" 
    },
@@ -99,6 +99,7 @@ export default function NavBar() {
                   open={openForm} 
                   setOpen={setOpenForm}  
                   formComponent = { showLoginForm ? <Login /> : <SignUp />} 
+                  title = { showLoginForm ? "Log In":  "Sign Up" }
       />
         <NavigationDrawer
         menuItems={menuItems}
