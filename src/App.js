@@ -3,11 +3,13 @@ import { blue } from '@material-ui/core/colors'
 import React, {Suspense, lazy} from 'react'
 import './App.css'
 import 'fontsource-roboto'
+import Preloader from './shared/Preloader';
 
 
 const LoggedInComponent = lazy(() => import('./logged_in/components'))
 const LoggedOutComponent = lazy(() => import('./logged_out'))
 const theme = createTheme({
+
   palette:{
       primary: {
           main: blue[900],
@@ -22,7 +24,7 @@ export default function App() {
   return (
     <div >
       <ThemeProvider theme = {theme}>
-        <Suspense fallback={<div>ddd</div>} >
+        <Suspense fallback={<Preloader />} >
           {
             isLoggedin ?
                       <LoggedInComponent /> :

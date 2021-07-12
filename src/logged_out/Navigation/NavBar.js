@@ -147,7 +147,7 @@ export default function NavBar() {
                         }
                         return(
                             <Button
-                                color="secondary"
+                                color="secondary" 
                                 size="large"
                                 className={classes.menuButton}
                                 variant={element.name === "Sign Up" ? "contained" : "text"}

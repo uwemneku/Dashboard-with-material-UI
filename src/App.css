@@ -10,3 +10,39 @@ a{
 img{
   width: 100%
 }
+.loading{
+  width: 100px;
+  height: 100px;
+  border-radius: 400px;
+  z-index: -1;
+  border-width: 10px !important;
+  border-color: white;
+  border-top-color: skyblue;
+  border-style: solid;
+  animation: rotate 2s ease-in-out 0s infinite alternate;
+}
+.textAnimation{
+  font-weight: 800 !important;
+  font-size: large !important;
+  animation: colors 2s ease-in-out 0s infinite alternate;
+  
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(0deg);
+    border-top-color: skyblue;
+  }
+  to{
+    transform: rotate(360deg);
+    border-top-color: darkblue;
+  }
+}
+@keyframes colors {
+  from{
+    color: whitesmoke;
+  }
+  to{
+    color: gray;
+  }
+}
