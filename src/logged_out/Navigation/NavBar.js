@@ -14,6 +14,7 @@ import logo from '../../media/logo.png'
 import Login from '../components/Home/Login';
 import SignUp from '../components/Home/SignUp';
 import NavigationDrawer from '../../shared/NavigationDrawer';
+import {useHistory} from 'react-router-dom'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +83,7 @@ export default function NavBar() {
   const [openForm, setOpenForm] = useState(false)
   const [showLoginForm, setShowLoginForm] = useState(false)
   const [openDrawer, setOpenDrawer] = useState(false)
+  const history = useHistory()
 
   const handleForm = (formName) => {
     setOpenForm(!openForm)
@@ -152,10 +154,9 @@ export default function NavBar() {
                                 size="large"
                                 className={classes.menuButton}
                                 variant={element.name === "Sign Up" ? "contained" : "text"}
-                                // onClick={element.onClick}
                                 key={element.name}
                                 classes={{root: element.name === "Sign Up" && classes.largeButton}}
-                                onClick = {() => handleForm(element.name)}
+                                onClick = {() => element.name === "Sign Up" ? history.replace("/register") : history.replace("/login")}
                             >
                               <Box  color="common.white" >
                                         {element.name}

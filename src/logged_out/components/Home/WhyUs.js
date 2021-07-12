@@ -1,7 +1,9 @@
-import { Box, Card, CardContent, Grow, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core'
+import { Box, Card, CardContent, Container, Grow, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import React, { useEffect, useRef, useState } from 'react'
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import { useViewportSpy } from 'beautiful-react-hooks';
+import LottieWrapper from '../../../shared/LottieWrapper';
+import whyUs from '../../../media/why us.json'
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -66,6 +68,9 @@ export default function WhyUs() {
     const matches_smDown = useMediaQuery(theme.breakpoints.down("sm"))
     return (
         <Box className={classes.root} >
+             <Container maxWidth="xs">
+                    <LottieWrapper data={whyUs} />
+             </Container>
             <Typography variant={matches_smDown ? "h5" : "h4"} >
                 <Box fontWeight={600} 
                     color="common.white"
@@ -76,7 +81,9 @@ export default function WhyUs() {
                     </Box>
                 </Box>
             </Typography>
-            <Box padding={5} paddingX={5} className={classes.conatiner} >
+            
+
+            <Box padding={5} className={classes.conatiner} >
                 {
                     cardDetails.map(card => <SimpleCard title={card.title} icon = {card.icon} text={card.text} key={card.text}  /> )
                 }

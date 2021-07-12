@@ -57,8 +57,8 @@ export default function Login() {
                     <Divider light variant="fullWidth" />
                     <Box paddingY={2} >
                         <Typography color="primary" >
-                            <Link to="/" > 
-                            Create Account
+                            <Link to="/login" > 
+                            Have an account? Log in
                             </Link>
                         </Typography>
                         <Typography>

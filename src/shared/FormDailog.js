@@ -1,5 +1,8 @@
 import { Box, Dialog, DialogContent, DialogTitle, makeStyles, Slide, Typography } from '@material-ui/core';
 import React from 'react';
+import { useRouteMatch, useHistory } from 'react-router-dom';
+import Login from '../logged_out/components/Home/Login'
+import SignUp from '../logged_out/components/Home/SignUp'
 
 const useStyles = makeStyles((theme) => ({
     dialogPaper: {
@@ -22,15 +25,17 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function FormDialog ({open=true, setOpen, formComponent, title}){
    const classes = useStyles()
-   
+   const matchLoginRoute = useRouteMatch("/login")
+   const matchRegisterRoute = useRouteMatch("/register")
+   const history =  useHistory()
   
     const handleClose = () => {
-      setOpen(false);
+      history.push("/")
     };
     return(
         <div>
             <Dialog
-                open={open}
+                open={matchLoginRoute || matchRegisterRoute }
                 maxWidth="xs"
                 fullWidth={true}
                 
@@ -49,7 +54,8 @@ export default function FormDialog ({open=true, setOpen, formComponent, title}){
                             {title}
                         </Box>
                     </Typography>
-                    {formComponent}
+                    {matchLoginRoute && <Login /> }
+                    {matchRegisterRoute && <SignUp /> }
 
                  </DialogContent>
             </Dialog>

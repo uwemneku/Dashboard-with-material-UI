@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Grid, Slide, Typography } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Grid, Slide, Typography } from '@material-ui/core';
 import { useViewportSpy } from 'beautiful-react-hooks';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import image from '../../../media/hero_l.jpg'
-
+import LottieWrapper from '../../../shared/LottieWrapper';
+import aboutUs from '../../../media/about us.json'
 
 const FAQdetails = [
     {
@@ -69,7 +69,7 @@ const Test =({slideIn})=>{
     return(
         
         <Slide  direction="left" in={slideIn} mountOnEnter  >
-        <Box maxWidth={600}   >
+        <Box maxWidth={600} textAlign="center"   >
             <Typography variant="h4" color="primary">
                 <Box fontWeight={600} textAlign="center">
                     About Us
@@ -78,7 +78,9 @@ const Test =({slideIn})=>{
             <Grid container justifyContent="center" alignItems="center" >
                 <Grid>
                     <Box paddingY={2} maxHeight={200} overflow="hidden" >
-                        { slideIn && <img src={image} alt={"jhbhb"} />}
+                        { slideIn && 
+                        <LottieWrapper data={aboutUs} />
+                        }
                     </Box>
                 </Grid>
                 <Grid item>

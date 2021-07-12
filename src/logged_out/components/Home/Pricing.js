@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Avatar, Box, Container, CssBaseline, Divider, Grow, makeStyles, Paper, Typography } from '@material-ui/core'
+import { Box, Divider, makeStyles, Paper, Typography } from '@material-ui/core'
 import Lottie from 'react-lottie';
 import gold from '../../../media/gold1.json'
 import silver from '../../../media/silver.json'
@@ -7,6 +7,7 @@ import bronze from '../../../media/bronze.json'
 import { Button } from '@material-ui/core';
 import { useViewportSpy } from 'beautiful-react-hooks';
 import { Zoom } from '@material-ui/core';
+import LottieWrapper from '../../../shared/LottieWrapper';
 
 function Pricing() {
     return (
@@ -16,13 +17,14 @@ function Pricing() {
             justifyContent="space-around"
             flexWrap="wrap"
             bgcolor="primary.dark"
-            paddingY={6}
+            paddingY={15}
          >
              <Box 
                  width="100vw"
                  textAlign="center"
                  fontWeight={600}
                  color="common.white"
+                 paddingY={5}
              >
                  <Typography variant="h4">
                      Our Invesment Packages
@@ -75,11 +77,7 @@ function PricingCard({animationData, name, price}){
         <Zoom ref={ref} in={isVisible} style={{boxSizing:"border-box"}}  >
         <Box ref={ref} maxWidth="300px" margin="10px" >
             <Paper elevation={2} color="primary" className={classes.root} >
-            <Lottie options={defaultOptions}
-              height={150}
-              width={150}
-              isStopped={false}
-              isPaused={false}/>
+            <LottieWrapper data={animationData} height={150} width={150} />
             <Box
                 textAlign="center"
             >

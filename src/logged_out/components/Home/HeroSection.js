@@ -6,8 +6,7 @@ import { useTheme, } from '@material-ui/core/styles';
 import FormDialog from '../../../shared/FormDailog';
 import Lottie from 'react-lottie';
 import hero from '../../../media/hero.json'
-import Login from './Login';
-import SignUp from './SignUp';
+import LottieWrapper from '../../../shared/LottieWrapper';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,24 +51,7 @@ export default function HeroSection() {
     const classes = useStyles();
     const theme = useTheme();
     const matches_smDown = useMediaQuery(theme.breakpoints.down("sm"))
-    const matches_mdDown = useMediaQuery(theme.breakpoints.down("md"))
-    const [openForm, setOpenForm] = useState(false)
-    const [showLoginForm, setShowLoginForm] = useState(false)
-    // const lottieSize = useMemo(() => function, input)
-    const defaultOptions = {
-        loop: true,
-        autoplay: true, 
-        animationData: hero,
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
-        }
-      };
 
-  const handleForm = (formName) => {
-    setOpenForm(!openForm)
-    formName === "Log In" ?  setShowLoginForm(true) : setShowLoginForm(false)
-  
-  }
     const _displayTextRenderer = (text, i) => {
         return (
             <Box  color="primary.main" >
@@ -115,7 +97,6 @@ export default function HeroSection() {
                                 <StyledButton variant="contained"
                                               color="primary" 
                                               size="large" 
-                                              onClick = {() => handleForm("Log In")}
                                 >
                                     Get Started
                                 </StyledButton>
@@ -131,17 +112,8 @@ export default function HeroSection() {
 
                 >
                     {/* <img className={classes.images} src={heroImage} alt="klnkll" /> */}
-                    <Lottie options={defaultOptions}
-                    height={"100%"}
-                    width={"100%"}
-                    isStopped={false}
-                    isPaused={false}/>
+                    <LottieWrapper data={hero} width="100%" height="100%" />
                 </Grid>
-                <FormDialog 
-                  open={openForm} 
-                  setOpen={setOpenForm}  
-                  formComponent = { showLoginForm ? <Login /> : <SignUp />} 
-      />
             </Grid>
     )
 }
