@@ -13,10 +13,21 @@ import FormDialog from '../../shared/FormDailog';
 import logo from '../../media/logo.png'
 import Login from '../components/Home/Login';
 import SignUp from '../components/Home/SignUp';
+import NavigationDrawer from '../../shared/NavigationDrawer';
+import { TramRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  avatar:{
+    width: 30,
+    height: 30,
+    [theme.breakpoints.down("sm")]:{
+      width: 20,
+      height: 20,
+
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -26,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: theme.typography.h6,
+    [theme.breakpoints.down("sm")]:{
+      fontSize: theme.typography.body1,
+    }
   },
   largeButton:{
     padding: "5px 30px"
@@ -66,11 +81,16 @@ export default function NavBar() {
   const classes = useStyles();
   const [openForm, setOpenForm] = useState(false)
   const [showLoginForm, setShowLoginForm] = useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   const handleForm = (formName) => {
     setOpenForm(!openForm)
     formName === "Log In" ?  setShowLoginForm(true) : setShowLoginForm(false)
   
+  }
+
+  const handleDrawer = () => {
+    setOpenDrawer(!openDrawer)
   }
 
   return (
@@ -80,20 +100,27 @@ export default function NavBar() {
                   setOpen={setOpenForm}  
                   formComponent = { showLoginForm ? <Login /> : <SignUp />} 
       />
+        <NavigationDrawer
+        menuItems={menuItems}
+        anchor="right"
+        open={openDrawer}
+        // selectedItem={selectedTab}
+        onClose={handleDrawer}
+      />
       <AppBar position="sticky"  color="primary">
 
         <Toolbar >
           <Box paddingX={1} >
-            <Avatar  src={logo} sizes="20" />
+            <Avatar  src={logo} className={classes.avatar}/>
           </Box>
-          <Typography variant="h6" className={classes.title}>
+          <Typography  className={classes.title}>
             <Box color="common.white">
               <span style={{fontWeight:"bolder"}} >Spiral</span>  Exchange
             </Box>
           </Typography>
           <div>
               <Hidden mdUp >
-                <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+                <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawer} >
                     <MenuIcon />
                 </IconButton>
               </Hidden>

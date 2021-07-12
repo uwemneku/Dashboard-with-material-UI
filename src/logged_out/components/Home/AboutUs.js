@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Grid, Slide, Typography } from '@material-ui/core';
 import { useViewportSpy } from 'beautiful-react-hooks';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import image from '../../../media/hero_l.jpg'
 
 
@@ -68,23 +69,25 @@ const Test =({slideIn})=>{
     return(
         <Slide  direction="left" in={slideIn} mountOnEnter  >
 
-        <Container maxWidth="md">
+        <Box maxWidth={600} paddingY={10}  >
             <Typography variant="h4" color="primary">
                 <Box fontWeight={600}>
                     About Us
                 </Box>
             </Typography>
             <Grid container>
-                <Grid item style={{maxHeight : 200, overflow:"hidden"}}  >
-                   { slideIn && <img src={image} alt={"jhbhb"} style={{width : "100%"}} />}
+                <Grid>
+                    <Box paddingY={2} maxHeight={200} overflow="hidden" >
+                        { slideIn && <img src={image} alt={"jhbhb"} />}
+                    </Box>
                 </Grid>
                 <Grid item>
                     <Typography variant="subtitle1" >
-                        virtualfxmarket INC is a fully certified and licensed company under the name Bitcoin Explore Limited with Company number 11188393. Established in 2017 first as a cloud mining provider and listed as one of the best sites to double bitcoins in 2018, we have now become a fully functional and trusted cryptocurrency investment company, verified by a lot of users. virtualfxmarket offers automatic BTC doubling programme, providing access to high liquidity orderbook for top currency pairs in the market. Our investment options are made to meet the needs and requirements of all investors with various ranges of financial capabilitties.
+                        Virtualfxmarket INC is a fully certified and licensed company under the name Bitcoin Explore Limited with Company number 11188393. Established in 2017 first as a cloud mining provider and listed as one of the best sites to double bitcoins in 2018, we have now become a fully functional and trusted cryptocurrency investment company, verified by a lot of users. virtualfxmarket offers automatic BTC doubling programme, providing access to high liquidity orderbook for top currency pairs in the market. Our investment options are made to meet the needs and requirements of all investors with various ranges of financial capabilitties.
                     </Typography>
                 </Grid>
             </Grid>
-        </Container>
+        </Box>
         </Slide>
     )
 }
@@ -145,6 +148,7 @@ const CustomTimeLine = ({title, text, onChange, expanded}) => {
                 >
                     <AccordionSummary
                     aria-controls="panel1a-content"
+                    expandIcon={<ExpandMoreIcon />}
                     >
                          <Typography>
                              <Box 

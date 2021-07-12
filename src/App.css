@@ -2,8 +2,11 @@ a{
   text-decoration: none;
 }
 *{
-  box-sizing: border-box !important;
+  /* box-sizing: border-box !important; */
   margin: 0px;
   padding: 0px;
   
+}
+img{
+  width: 100%
 }

@@ -1,8 +1,11 @@
 import { Box, Button, Grid, makeStyles, Typography, useMediaQuery, withStyles } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import ReactTypingEffect from 'react-typing-effect'
 import heroImage from '../../../media/hero_lg.jpg'
 import { useTheme, } from '@material-ui/core/styles';
+import FormDialog from '../../../shared/FormDailog';
+import Login from './Login';
+import SignUp from './SignUp';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,6 +50,14 @@ export default function HeroSection() {
     const classes = useStyles();
     const theme = useTheme();
     const matches_smDown = useMediaQuery(theme.breakpoints.down("sm"))
+    const [openForm, setOpenForm] = useState(false)
+  const [showLoginForm, setShowLoginForm] = useState(false)
+
+  const handleForm = (formName) => {
+    setOpenForm(!openForm)
+    formName === "Log In" ?  setShowLoginForm(true) : setShowLoginForm(false)
+  
+  }
     const _displayTextRenderer = (text, i) => {
         return (
             <Box  color="primary.main" >
@@ -89,7 +100,11 @@ export default function HeroSection() {
                         </Grid>
                         <Grid item xs
                         >
-                                <StyledButton variant="contained" color="primary" size="large"  >
+                                <StyledButton variant="contained"
+                                              color="primary" 
+                                              size="large" 
+                                              onClick = {() => handleForm("Log In")}
+                                >
                                     Get Started
                                 </StyledButton>
                                 <StyledButton variant="outlined" size="large" >
@@ -105,6 +120,11 @@ export default function HeroSection() {
                 >
                     <img className={classes.images} src={heroImage} alt="klnkll" />
                 </Grid>
+                <FormDialog 
+                  open={openForm} 
+                  setOpen={setOpenForm}  
+                  formComponent = { showLoginForm ? <Login /> : <SignUp />} 
+      />
             </Grid>
     )
 }
