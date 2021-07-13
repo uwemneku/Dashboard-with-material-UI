@@ -2,9 +2,9 @@ import React from 'react'
 import Lottie from 'react-lottie';
 
 
-function LottieWrapper({data, width, height}) {
+function LottieWrapper({data, width, height, loop=true }) {
     const defaultOptions = {
-        loop: true,
+        loop: loop,
         autoplay: true, 
         animationData: data,
         rendererSettings: {

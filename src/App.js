@@ -6,7 +6,7 @@ import 'fontsource-roboto'
 import Preloader from './shared/Preloader';
 
 
-const LoggedInComponent = lazy(() => import('./logged_in/components'))
+const LoggedInComponent = lazy(() => import('./logged_in/'))
 const LoggedOutComponent = lazy(() => import('./logged_out'))
 const theme = createTheme({
 
@@ -20,7 +20,7 @@ const theme = createTheme({
 
 
 export default function App() {
-  const isLoggedin = false
+  const isLoggedin = true
   return (
     <div >
       <ThemeProvider theme = {theme}>
