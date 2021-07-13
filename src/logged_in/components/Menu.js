@@ -11,14 +11,44 @@ import { common } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-
+      color: "white",
+      fontSize: "8px"
     },
     paper:{
         padding: "15px",
         borderRadius: 20,
-        backgroundColor:"rgb(23, 28, 36)"
+        backgroundColor:"#001322"
     }
 }))
+
+const list1 =[
+  {
+    name:"Dashboard",
+    icon: <SendIcon color="primary" />,
+    link: "/dashboard",
+  },
+  {
+    name:"Fund Account",
+    icon: <SendIcon color="primary" />,
+    link: "/dashboard",
+  },
+  {
+    name:"Make Withdrawal",
+    icon: <SendIcon color="primary" />,
+    link: "/dashboard",
+  },
+  {
+    name:"Investment",
+    icon: <SendIcon color="primary" />,
+    link: "/dashboard",
+  },
+  {
+    name:"Share funds",
+    icon: <SendIcon color="primary" />,
+    link: "/dashboard",
+  },
+
+]
 
 function Menu(){
     return(
@@ -26,9 +56,12 @@ function Menu(){
             <Grid item>
                 <UserCard />
             </Grid>
-            <Divider variant="fullWidth" style={{backgroundColor:"gray", padding:"0.1px"}} orientation="horizontal" flexItem />
+            <Divider variant="fullWidth" style={{backgroundColor:"#1e88e5", padding:"0.1px"}} orientation="horizontal" flexItem />
             <Grid item>
-                <NestedList />
+                <NestedList data={list1}  />
+            </Grid>
+            <Grid item>
+                <NestedList data={list1}  />
             </Grid>
         </Grid>
         
@@ -66,7 +99,7 @@ function UserCard() {
     )
 }
 
- function NestedList() {
+ function NestedList({data, title}) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
   
@@ -87,19 +120,17 @@ function UserCard() {
         }
         className={classes.root}
       >
-        <ListItem button>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText primary="OverView" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <DraftsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Acocunt" />
-        </ListItem>
-        
+        {
+          data.map(item => (
+
+          <ListItem  button>
+            <ListItemIcon>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText  color="text.main" primary={item.name} />
+          </ListItem>
+          ))
+        }
       </List>
     );
   }

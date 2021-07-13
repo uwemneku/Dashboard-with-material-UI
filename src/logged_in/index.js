@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LoggedInComponent = () => {
     return (
-        <div style={{height:"100vh", overflow:"hidden", backgroundColor:"rgb(23, 28, 36)"}} >
+        <div style={{height:"100vh", overflow:"hidden", backgroundColor:"#000d13"}} >
             <NavBar />
             <Hidden smUp>
                 <Box position="fixed" bottom="0px" >
@@ -22,7 +22,7 @@ const LoggedInComponent = () => {
             </Hidden>
             <Grid container>
                 <Grid  item
-                    style={{backgroundColor:"rgb(34, 43, 54)"}}
+                    style={{backgroundColor:"#001322"}}
                 >
                     <Hidden smDown>
                         <Box  
@@ -31,13 +31,14 @@ const LoggedInComponent = () => {
                             paddingX={2}
                             height="100vh"
                             bgColor="rgb(34, 43, 54)"
+                            maxHeight="100vh"  overflow='scroll'
                             
                          >
                             <Menu />
                         </Box>
                     </Hidden>
                 </Grid>
-                <Divider style={{backgroundColor:"gray"}} orientation="vertical" flexItem />
+                <Divider style={{backgroundColor:"#1e88e5"}} orientation="vertical" flexItem />
                 <Grid item xs >
                     <Box id="see" maxHeight="100vh"  overflow='scroll' >
                         <OverView />

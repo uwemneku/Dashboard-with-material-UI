@@ -9,22 +9,24 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Container } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
   root:{
       padding:"10px 10px"
 
   },
   table: {
-    // minWidth: 650,
+      borderStyle: "solid",
+      borderWidth: "2px",
+      borderColor: theme.palette.primary.main
   },
   tableHead:{
-    backgroundColor: "rgb(34, 43, 54)",
+    backgroundColor: '#000d13',
     '& th':{
       color: "white",
       fontWeight:600
     }
   }
-});
+}));
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -42,13 +44,13 @@ export default function CustomTable() {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="sm" 
+    <Container maxWidth="md" 
                 disableGutters={true} 
                 style={{margin:0}}
      >
 
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
+        <TableContainer className={classes.table} component={Paper}>
+          <Table  aria-label="simple table">
             <TableHead  >
               <TableRow className={classes.tableHead}>
                 <TableCell align="left">Desert (100g serving)</TableCell>

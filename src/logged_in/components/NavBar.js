@@ -65,7 +65,7 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" style={{backgroundColor:"rgb(34, 43, 54)"}} >
+      <AppBar position="sticky" style={{backgroundColor:"#001322"}} >
         <Toolbar >
           <Box paddingX={1} >
             <Avatar   src={logo} className={classes.avatar}/>
@@ -82,7 +82,7 @@ export default function NavBar() {
         </Toolbar>
       
       </AppBar>
-        <Divider variant="fullWidth" style={{backgroundColor:"gray", padding:"0.3px"}} orientation="horizontal" flexItem />
+        <Divider color="primary" variant="fullWidth" style={{backgroundColor:"#1e88e5", padding:"0.3px"}} orientation="horizontal" flexItem />
     </div>
   );
 }
