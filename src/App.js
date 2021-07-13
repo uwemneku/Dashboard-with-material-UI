@@ -12,8 +12,14 @@ const theme = createTheme({
 
   palette:{
       primary: {
-          main: blue[900],
+          main: blue[600],
+          dark: blue[900],
           contrastText: "white"
+      },
+      text:{
+        secondary: "whitesmoke",
+        hint:"gray"
+        
       }
   }
 })

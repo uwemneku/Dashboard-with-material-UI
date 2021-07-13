@@ -31,12 +31,12 @@ function OverView() {
         >
             <Grid item xs={12}>
                 <Typography variant={matches_smDown ? "h6": "h5"} >
-                    <Box fontWeight={700} >
+                    <Box fontWeight={700} color="common.white" >
                         Good Morning, Jane
                     </Box>
                 </Typography>
                 <Typography variant={matches_smDown ? "body2": "body1"}  >
-                    <Box color="text.secondary" >
+                    <Box color="text.hint" >
                         Welcome to spiral exchange. This dashboard keeps track of your activities
                     </Box>
                 </Typography>
@@ -52,7 +52,7 @@ function OverView() {
             >
                 <Grid item xs={12} sm  md>
                     <Container maxWidth="sm">
-                        <Paper>
+                        <Paper style={{backgroundColor:"whitesmoke", padding:"10px 20px"}}>
                             <Grid 
                                 container
                                 alignItems="center"
@@ -62,12 +62,14 @@ function OverView() {
                                 </Grid>
                                 <Grid item xs>
                                     <Typography variant={matches_smDown ? "h6": "h5"}>
-                                        <Box fontWeight={600}>
+                                        <Box fontWeight={600} color="primary.main" >
                                             $2,123
                                         </Box>
                                     </Typography>
                                     <Typography variant="body2">
-                                        Your Private Balance
+                                        <Box color="text.hint">
+                                            Your Private Balance
+                                        </Box>
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -75,14 +77,15 @@ function OverView() {
                     </Container>
                 </Grid>
                 <Grid item xs={12} sm  md>
-                    <Container maxWidth="sm">
-                        <Paper>
+                    <Container maxWidth="sm" >
+                        <Paper  style={{backgroundColor:"whitesmoke", padding:"10px 20px"}}>
                             <Grid 
                                 container
                                 alignItems="center"
+                               
                                 >
                                 <Grid item xs>
-                                    <LottieWrapper data={bonus} height={"55%"} loop={false}  />
+                                    <LottieWrapper data={bonus} height={"59%"} loop={false}  />
                                 </Grid>
                                 <Grid item xs>
                                     <Typography variant={matches_smDown ? "h6": "h5"}>
@@ -107,11 +110,16 @@ function OverView() {
                    
             >   
                 <Grid item xs={12}>
-                    <Typography variant={matches_smDown ? "h6": "h5"} >
-                        <Box fontWeight={700} >
-                            Activities
-                        </Box>
-                    </Typography>
+                <Typography variant={matches_smDown ? "h6": "h5"} >
+                    <Box fontWeight={700} color="common.white"  >
+                        Activities
+                    </Box>
+                </Typography>
+                <Typography variant={matches_smDown ? "body2": "body1"}  >
+                    <Box color="text.hint" paddingBottom={2} >
+                        View all recent activities on your account
+                    </Box>
+                </Typography>
                 </Grid>
                 <Grid item xs={12}>
                     <CustomTable />

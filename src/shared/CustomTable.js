@@ -17,6 +17,13 @@ const useStyles = makeStyles({
   table: {
     // minWidth: 650,
   },
+  tableHead:{
+    backgroundColor: "rgb(34, 43, 54)",
+    '& th':{
+      color: "white",
+      fontWeight:600
+    }
+  }
 });
 
 function createData(name, calories, fat, carbs, protein) {
@@ -42,8 +49,8 @@ export default function CustomTable() {
 
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
+            <TableHead  >
+              <TableRow className={classes.tableHead}>
                 <TableCell align="left">Desert (100g serving)</TableCell>
                 <TableCell align="right">Calories</TableCell>
                 <TableCell align="right">Fat&nbsp;(g)</TableCell>

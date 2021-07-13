@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { HashLink as Link } from 'react-router-hash-link';
-import { Avatar, Box, Hidden } from '@material-ui/core';
+import { Avatar, Box, Divider, Hidden } from '@material-ui/core';
 import logo from '../../media/logo.png'
 import {useHistory} from 'react-router-dom'
 import avatar from '../../media/avatar.jpg'
@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     position: "sticky",
+    borderStyle:"block",
+    borderWidth: 2,
+    borderColor: "white",
     top:0,
     zIndex: 10
   },
@@ -62,7 +65,7 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky"  color="primary">
+      <AppBar position="sticky" style={{backgroundColor:"rgb(34, 43, 54)"}} >
         <Toolbar >
           <Box paddingX={1} >
             <Avatar   src={logo} className={classes.avatar}/>
@@ -79,6 +82,7 @@ export default function NavBar() {
         </Toolbar>
       
       </AppBar>
+        <Divider variant="fullWidth" style={{backgroundColor:"gray", padding:"0.3px"}} orientation="horizontal" flexItem />
     </div>
   );
 }

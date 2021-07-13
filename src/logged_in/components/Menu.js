@@ -7,15 +7,16 @@ import UserAvar from './../../shared/UserAvar';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
+import { common } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     root:{
 
     },
     paper:{
-        padding: "20px",
+        padding: "15px",
         borderRadius: 20,
-        // width: "100%"
+        backgroundColor:"rgb(23, 28, 36)"
     }
 }))
 
@@ -25,7 +26,7 @@ function Menu(){
             <Grid item>
                 <UserCard />
             </Grid>
-            <Divider />
+            <Divider variant="fullWidth" style={{backgroundColor:"gray", padding:"0.1px"}} orientation="horizontal" flexItem />
             <Grid item>
                 <NestedList />
             </Grid>
@@ -40,19 +41,21 @@ function UserCard() {
             <Paper className={classes.paper} elevation={5} >
                 <Grid container 
                       alignItems="center" 
-                      spacing={1}
+                      spacing={2}
                 >
                     <Grid item>
                         <UserAvar dimension={50} />
                     </Grid>
                     <Grid item>
-                        <Typography>
-                            <Box fontWeight={800}>
+                        <Typography variant="body2"  >
+                            <Box fontWeight={800} color="common.white">
                                     John Doe
                             </Box>
                         </Typography>
-                        <Typography variant="body2" >
-                            Your Plan :  
+                        <Typography variant="caption" >
+                            <Box component="span" color="text.secondary" >
+                                Your Plan :  
+                            </Box>
                             <Box component="span" color="primary.main" fontWeight={600}>
                                 {  }Gold
                             </Box>
@@ -77,7 +80,7 @@ function UserCard() {
         aria-labelledby="nested-list-subheader"
         subheader={
           <Typography component="div" id="nested-list-subheader">
-              <Box fontWeight={600}>
+              <Box fontWeight={600} color="common.white" >
                     General
               </Box>
           </Typography>
