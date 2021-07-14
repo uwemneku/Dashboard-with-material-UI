@@ -4,6 +4,7 @@ import React, {Suspense, lazy} from 'react'
 import './App.css'
 import 'fontsource-roboto'
 import Preloader from './shared/Preloader';
+import { Route, Switch } from 'react-router-dom'
 
 
 const LoggedInComponent = lazy(() => import('./logged_in/'))
@@ -33,8 +34,15 @@ export default function App() {
         <Suspense fallback={<Preloader />} >
           {
             isLoggedin ?
-                      <LoggedInComponent /> :
-                      <LoggedOutComponent />
+                      <Switch>
+                        <Route path="/" component={LoggedInComponent} />
+                      </Switch>
+                      :
+                      <Switch>
+                        <Route path="/" component={LoggedOutComponent} />
+                      </Switch>
+                      
+                      
           }
         </Suspense>
       </ThemeProvider>

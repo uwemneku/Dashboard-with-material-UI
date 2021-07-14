@@ -8,60 +8,89 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import { common } from '@material-ui/core/colors';
+import HomeIcon from '@material-ui/icons/Home';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import LocalMallIcon from '@material-ui/icons/LocalMall';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import PersonIcon from '@material-ui/icons/Person';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root:{
       color: "white",
-      fontSize: "8px"
+      
     },
     paper:{
-        padding: "15px",
-        borderRadius: 20,
-        backgroundColor:"#001322"
+      padding: "15px",
+      borderRadius: 20,
+      backgroundColor:"#001322"
+    },
+    listText:{
+      fontSize: theme.typography.subtitle1
+
     }
 }))
 
 const list1 =[
   {
     name:"Dashboard",
-    icon: <SendIcon color="primary" />,
+    icon: <HomeIcon color="primary" />,
     link: "/dashboard",
   },
   {
     name:"Fund Account",
-    icon: <SendIcon color="primary" />,
-    link: "/dashboard",
+    icon: <AccountBalanceWalletIcon color="primary" />,
+    link: "/fund",
   },
   {
     name:"Make Withdrawal",
-    icon: <SendIcon color="primary" />,
-    link: "/dashboard",
+    icon: <LocalMallIcon color="primary" />,
+    link: "/withdrawal",
   },
   {
     name:"Investment",
-    icon: <SendIcon color="primary" />,
-    link: "/dashboard",
+    icon: <TrendingUpIcon color="primary" />,
+    link: "/investment",
+  },
+  
+]
+const list2 =[
+  {
+    name:"Edit Profile",
+    icon: <PersonIcon color="primary" />,
+    link: "/profile",
   },
   {
-    name:"Share funds",
-    icon: <SendIcon color="primary" />,
-    link: "/dashboard",
+    name:"Support",
+    icon: <LiveHelpIcon color="primary" />,
+    link: "/support",
   },
-
+  {
+    name:"Referral",
+    icon: <AccountTreeIcon color="primary" />,
+    link: "/referral",
+  },
+  {
+    name:"Logout",
+    icon: <AccountBalanceWalletIcon color="primary" />,
+    link: "/logout",
+  },
 ]
 
 function Menu(){
     return(
-        <Grid container spacing={5} direction="column" >
+        <Grid container spacing={5} direction="column" style={{paddingBottom: "100px"}} >
             <Grid item>
                 <UserCard />
             </Grid>
             <Divider variant="fullWidth" style={{backgroundColor:"#1e88e5", padding:"0.1px"}} orientation="horizontal" flexItem />
             <Grid item>
-                <NestedList data={list1}  />
+                <NestedList title="General" data={list1}  />
             </Grid>
             <Grid item>
-                <NestedList data={list1}  />
+                <NestedList title="Others" data={list2}  />
             </Grid>
         </Grid>
         
@@ -114,7 +143,7 @@ function UserCard() {
         subheader={
           <Typography component="div" id="nested-list-subheader">
               <Box fontWeight={600} color="common.white" >
-                    General
+                    {title}
               </Box>
           </Typography>
         }
@@ -122,13 +151,14 @@ function UserCard() {
       >
         {
           data.map(item => (
-
-          <ListItem  button>
-            <ListItemIcon>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText  color="text.main" primary={item.name} />
-          </ListItem>
+          <Link to={item.link}>
+            <ListItem  button>
+              <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText classes={{primary:classes.listText}}  color="text.main" primary={item.name} />
+            </ListItem>
+          </Link>  
           ))
         }
       </List>
