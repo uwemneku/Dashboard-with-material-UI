@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) =>({
   root:{
@@ -44,12 +44,13 @@ export default function CustomTable() {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md" 
-                disableGutters={true} 
-                style={{margin:0}}
+    <Box 
+                // disableGutters={true} 
+                // style={{margin:0}}
+                id="thu"
      >
 
-        <TableContainer className={classes.table} component={Paper}>
+        <TableContainer id="table" className={classes.table} component={Paper}>
           <Table  aria-label="simple table">
             <TableHead  >
               <TableRow className={classes.tableHead}>
@@ -76,6 +77,6 @@ export default function CustomTable() {
           </Table>
         </TableContainer>
      
-    </Container>
+    </Box>
  );
 }

@@ -107,16 +107,16 @@ function OverView() {
                 <Grid item xs={12}
                     container
                     direction="column"
-                    spacing={6}
+                    spacing={0}
                 >
                     <Grid item xs={12}>
                      <CustomTable />
                     </Grid>
                     <Grid item xs={12}>
-                        <div id="chart" />
+                        <Box paddingY={5} id="chart" />
                     </Grid>
                     <Grid item xs={12}>
-                        <div id="chart1" />
+                        <Box paddingY={5} id="chart1" />
                     </Grid>
                 </Grid>
 
